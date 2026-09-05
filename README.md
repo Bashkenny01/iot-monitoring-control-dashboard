@@ -1,101 +1,54 @@
-IoT Monitoring & Control Dashboard
+# IoT Monitoring & Control Dashboard
 
 A full-stack IoT monitoring and control dashboard for remotely monitoring connected devices in real time.
 
-Overview
+Important: This project uses simulated IoT devices and simulated sensor data — no physical hardware is required to run or demo the application. The architecture is designed so real hardware/device integrations can be added later (device adapters, MQTT/HTTP bridges, or cloud IoT connectors).
 
-The IoT Monitoring & Control Dashboard is a web-based system designed to connect software interfaces with IoT devices and sensors.
+## Key Features
+- Real-time device monitoring (simulated)
+- Remote device control (simulated)
+- Live device status updates via Socket.IO
+- Sensor data (temperature, humidity) simulation
+- Alerts and notifications (simulated thresholds)
+- Automation rules (monitor one device, act on another)
+- Responsive web dashboard
 
-The platform provides a centralized interface for monitoring device status, viewing sensor data, controlling connected devices remotely, managing automation, and responding to system alerts.
+## Technology Stack
+- Language: JavaScript (Node.js)
+- Backend: Express.js + Socket.IO
+- Frontend: Plain HTML/CSS/JavaScript (responsive)
+- Simulation: in-memory simulated devices and rule engine
 
-Key Features
+## Project structure (top-level)
+- server.js             — Express + Socket.IO server entrypoint
+- package.json          — project manifest (dependencies & scripts)
+- devices/              — device simulator and automation engine
+  - simulator.js
+- public/               — frontend assets (index.html, app.js, style.css)
+- README.md
 
-* Real-time device monitoring
-* Remote device control
-* Live device status updates
-* Sensor data visualization
-* Device management
-* Alerts and notifications
-* Automation rules
-* Responsive web dashboard
-* Real-time communication between devices and dashboard
-* Hardware and software integration
+## Running locally (simulated)
+These instructions start a simulated, local-only version of the dashboard — no physical hardware is required.
 
-Technology Stack
+1. Install dependencies
+```bash
+npm install
+```
 
-Backend
+2. Start the server
+```bash
+npm start
+```
 
-* Node.js
-* Express.js
-* Socket.IO
+3. Open the dashboard
+Visit http://localhost:3000 in your browser.
 
-Frontend
+Notes
+- The current implementation uses simulated device data only. Hardware integration is not included in this version.
+- The architecture (server, device simulator, Socket.IO events) is intentionally structured so you can later replace or augment the simulated devices with real hardware integrations (MQTT clients, serial adapters, cloud device bridges).
+- For development with automatic restarts:
+```bash
+npm run dev
+```
 
-* HTML
-* CSS
-* JavaScript
-* Responsive dashboard interface
-
-IoT & Hardware
-
-* IoT sensors and connected devices
-* Real-time device communication
-* Hardware-to-software integration
-
-System Architecture
-
-The system is designed around communication between connected IoT hardware, a backend server, and a web-based dashboard.
-
-IoT Devices / Sensors
-        │
-        ▼
-Backend / API Server
-        │
-        ├── Real-time Communication
-        │
-        ▼
-Web Dashboard
-        │
-        ▼
-Monitoring & Remote Control
-
-Project Goals
-
-The project demonstrates practical skills in:
-
-* Full-stack web development
-* IoT system integration
-* Backend development
-* Real-time communication
-* Data visualization
-* Hardware/software integration
-* System monitoring
-* Remote device control
-
-Use Cases
-
-This type of system can be adapted for:
-
-* Smart home monitoring
-* Industrial IoT
-* Equipment monitoring
-* Remote device management
-* Sensor monitoring
-* Automation systems
-* Technical system diagnostics
-
-Project Status
-
-🚧 Active Development
-
-The system can be extended with additional sensors, devices, automation features, authentication, analytics, and cloud-based IoT services.
-
-Author
-
-Bashkenny01
-
-GitHub: Bashkenny01
-
-⸻
-
-Built as a practical full-stack IoT and systems engineering project.
+Author: Bashkenny01
