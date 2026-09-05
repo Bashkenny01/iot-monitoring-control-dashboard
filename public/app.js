@@ -103,8 +103,9 @@ form.addEventListener('submit', async (e)=>{
   const res = await fetch('/api/rules', { method: 'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
   if (res.ok){
     const created = await res.json();
-    rules.push(created);
-    renderRules();
+    // Do NOT push the created rule into the local `rules` array here.
+    // The server emits a 'rule_created' Socket.IO event which will add the rule exactly once.
+    showAlert('Rule created — it will appear in the list shortly when the server confirms.', 'success');
   } else {
     const err = await res.json();
     alert('Failed to create rule: ' + (err.error||'unknown'));
